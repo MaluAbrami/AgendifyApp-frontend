@@ -1,28 +1,28 @@
-import "./RegisterPage.css";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 function Register() {
     return (
-        <div className="register-container">
-            <div className="register-box">
-                <h1 className="register-title">Cadastrar</h1>
-                <form className="register-form">
-                    <div className="input-row">
-                        <input type="username" placeholder="Nome de usuário" className="register-input"/>
-                        <input type="name" placeholder="Nome completo" className="register-input"/>
-                    </div>
-                    <div className="input-row">
-                        <input type="phone" placeholder="Telefone" className="register-input"/>
-                        <input type="email" placeholder="Email" className="register-input"/>
-                    </div>
-                    <div className="input-row">
-                        <input type="password" placeholder="Senha" className="register-input"/>
-                        <input type="password" placeholder="Confirmação de senha" className="register-input"/>
-                    </div>
-                    <button className="register-button">Cadastrar</button>
-                </form>
-                <a href="/login" className="login-link">Já tem uma conta? Faça login</a>
-            </div>
-        </div>
+        <Form>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Email address</Form.Label>
+                <Form.Control type="email" placeholder="Enter email" />
+                <Form.Text className="text-muted">
+                We'll never share your email with anyone else.
+                </Form.Text>
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control type="password" placeholder="Password" />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                <Form.Check type="checkbox" label="Check me out" />
+            </Form.Group>
+            <Button variant="primary" type="submit">
+                Submit
+            </Button>
+        </Form>
     );
 }
 
