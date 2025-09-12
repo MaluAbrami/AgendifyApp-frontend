@@ -12,6 +12,5 @@ src/
  ├── hooks/          # custom hooks (ex: useAuth, useFetch)
  ├── context/        # contexto global (ex: autenticação, tema)
  ├── routes/         # arquivo central com as rotas
- ├── App.jsx         # componente raiz
  └── main.jsx        # ponto de entrada da aplicação
 ```
