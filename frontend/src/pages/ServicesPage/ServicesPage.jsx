@@ -23,9 +23,6 @@ function ServicesPage() {
                             <p>Atualize seus dados e preferências para uma experiência única.</p>
                         </div>
                     </div>
-                    <button className="explore-btn" onClick={() => window.location.href = '/available-services'}>
-                        Explorar Serviços
-                    </button>
                 </div>
             </div>
         </div>

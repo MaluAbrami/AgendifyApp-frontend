@@ -54,20 +54,3 @@
         color: #6b7280;
     }
 }
-
-.explore-btn {
-    background: #235aa6;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    padding: 0.7rem 2rem;
-    font-size: 1.1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.2s;
-    margin-top: 1rem;
-}
-
-.explore-btn:hover {
-    background: #4338ca;
-}
