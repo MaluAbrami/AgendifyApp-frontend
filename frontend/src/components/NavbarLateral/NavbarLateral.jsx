@@ -1,14 +1,15 @@
 import "./NavbarLateral.css";
+import { Link } from "react-router-dom";
 
 function NavbarLateral() {
     return (
         <div className="navbar-lateral">
             <ul>
-                <li><a href="/appointments">Meus Agendamentos</a></li>
-                <li><a href="/services">Serviços</a></li>
-                <li><a href="/profile">Perfil</a></li>
-                <li><a href="/settings">Configurações</a></li>
-                <li><a href="/logout">Sair</a></li>
+                <li><Link to="/appointments">Meus Agendamentos</Link></li>
+                <li><Link to="/available-services">Serviços</Link></li>
+                <li><Link to="/profile">Perfil</Link></li>
+                <li><Link to="/settings">Configurações</Link></li>
+                <li><Link to="/logout">Sair</Link></li>
             </ul>
         </div>
     );

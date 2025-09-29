@@ -20,3 +20,48 @@
     background-color: white;
     border-radius: 8px;
 }
+
+.services-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #235aa6;
+    margin-bottom: 0.5rem;
+}
+
+.services-desc {
+    font-size: 1.1rem;
+    color: #3b82f6;
+    margin-bottom: 2rem;
+}
+
+.services-highlights {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.highlight-card {
+    background: #f3f4f6;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    padding: 1.5rem 2rem;
+    flex: 1;
+    text-align: center;
+}
+
+.explore-btn {
+    background: #6366f1;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.7rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 1rem;
+}
+
+.explore-btn:hover {
+    background: #4338ca;
+}

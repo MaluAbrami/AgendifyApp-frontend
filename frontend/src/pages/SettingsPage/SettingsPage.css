@@ -1,0 +1,12 @@
+.settings-page {
+  padding: 2rem;
+  text-align: center;
+}
+.settings-fake {
+  background: #f3f4f6;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-top: 2rem;
+  color: #6366f1;
+  font-size: 1.1rem;
+}
