@@ -17,9 +17,6 @@ function Login() {
                 className="mb-3"
               >
                 <Form.Control type="email" placeholder="name@example.com" />
-                <Form.Text className="text-muted">
-                  Nós nunca compartilhamos seu email com ninguém.
-                </Form.Text>
               </FloatingLabel>
             </Form.Group>
 
@@ -34,6 +31,10 @@ function Login() {
             <Button variant="primary" type="submit">
               Entrar
             </Button>
+            <div className="login-links">
+              <a href="#">Esqueceu a senha?</a>
+              <a href="#">É novo? Criar conta</a>
+            </div>
           </div>
         </Form>
       </div>
