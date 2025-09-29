@@ -1,15 +1,13 @@
 import "./ServicesPage.css";
-import NavBarSearch from "../../layouts/NavBarSearch/NavBarSearch";
 import NavbarLateral from "../../components/NavbarLateral/NavbarLateral";
 
 function ServicesPage() {
     return (
-        <div className="services-page">
-            <NavBarSearch />
-            <div className="container">
-                <NavbarLateral />
+        <div>
+            <NavbarLateral />
+            <div className="services-page">
                 <div className="container-content">
-                    <h1 className="services-title">Bem-vindo ao Agendify!</h1>
+                    <h1 className="services-title">Bem-vindo de volta!</h1>
                     <p className="services-desc">Gerencie seus agendamentos, explore serviços e personalize sua experiência.</p>
                     <div className="services-highlights">
                         <div className="highlight-card">
