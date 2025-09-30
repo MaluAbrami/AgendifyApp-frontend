@@ -1,18 +1,44 @@
 import "./AvailableServicesPage.css";
-import { useState } from "react";
-
-const mockServices = [
-  { id: 1, name: "Corte de cabelo", company: "Barbearia Top", price: 40 },
-  { id: 2, name: "Manicure", company: "Salão Bela", price: 30 },
-  { id: 3, name: "Massagem", company: "Spa Zen", price: 80 },
-];
+import { useState, useEffect } from "react";
+import AvailableServices from "../../services/AvailableServices/AvailableServices";
+import CompaniesService from "../../services/Companies/CompaniesService";
 
 function AvailableServicesPage() {
   const [filter, setFilter] = useState("");
   const [price, setPrice] = useState(100);
+  const [services, setServices] = useState([]);
+  const [companies, setCompanies] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
-  const filtered = mockServices.filter(s =>
-    s.company.toLowerCase().includes(filter.toLowerCase()) && s.price <= price
+  useEffect(() => {
+    async function fetchData() {
+      setLoading(true);
+      setError("");
+      try {
+        const [servicesData, companiesData] = await Promise.all([
+          AvailableServices.getAllServices(),
+          CompaniesService.getAllCompanies()
+        ]);
+        setServices(servicesData);
+        setCompanies(companiesData);
+      } catch (err) {
+        setError("Erro ao carregar serviços ou empresas");
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchData();
+  }, []);
+
+  // Helper para pegar nome da empresa pelo id
+  const getCompanyName = (companyId) => {
+    const company = companies.find(c => c.id === companyId);
+    return company ? company.name : companyId;
+  };
+
+  const filtered = services.filter(s =>
+    getCompanyName(s.companyId).toLowerCase().includes(filter.toLowerCase()) && s.price <= price
   );
 
   return (
@@ -34,16 +60,24 @@ function AvailableServicesPage() {
         />
         <span>Até R$ {price}</span>
       </div>
-      <ul className="services-list">
-        {filtered.map(service => (
-          <li key={service.id} className="service-card">
-            <strong>{service.name}</strong>
-            <span>{service.company}</span>
-            <span>R$ {service.price}</span>
-            <button className="agendar-btn">Agendar</button>
-          </li>
-        ))}
-      </ul>
+      {loading ? (
+        <div>Carregando...</div>
+      ) : error ? (
+        <div className="text-danger">{error}</div>
+      ) : (
+        <ul className="services-list">
+          {filtered.map(service => (
+            <li key={service.id} className="service-card">
+              <strong>{service.name}</strong>
+              <span>{service.description}</span>
+              <span>R$ {service.price}</span>
+              <span>{service.durationTime} minutos</span>
+              <span>{getCompanyName(service.companyId)}</span>
+              <button className="agendar-btn">Agendar</button>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
